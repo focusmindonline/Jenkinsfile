@@ -4,6 +4,10 @@ stage('clone repo') {
         git credentialsId: 'GIT-Credentials', url: 'https://github.com/omprakashpandit/maven-web-app-master.git'
         
    }
+ stage('JACOCO'){
+        jacoco()
+     }	
+	
  stage ('Maven Clean Build'){
         def mavenHome = tool name: "Maven-3.8.6", type: "maven"
         def mavenCMD = "${mavenHome}/bin/mvn"
